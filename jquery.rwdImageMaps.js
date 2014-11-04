@@ -21,11 +21,11 @@
 					$that = $(that);
 				
 				// Since WebKit doesn't know the height until after the image has loaded, perform everything in an onload copy
-				$('<img />').load(function() {
+				$('<img />').attr("src", $img.attr("src")).load(function() {
 					var attrW = 'width',
 						attrH = 'height',
-						w = $that.attr(attrW),
-						h = $that.attr(attrH);
+						w = this.width,
+						h = this.height;
 					
 					if (!w || !h) {
 						var temp = new Image();
